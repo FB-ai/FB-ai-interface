@@ -6,6 +6,7 @@
 
 			'app.controller.home',
 			'app.controller.addpost',
+			'app.controller.toolbar',
 		])
 		.config(['$locationProvider','$stateProvider','$urlRouterProvider', Config]);
 
