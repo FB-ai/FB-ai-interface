@@ -2,8 +2,10 @@
 	angular
 		.module('app', [
 			'ui.router',
+			'ngMaterial',
+
 			'app.controller.home',
-			'app.controller.addpost'
+			'app.controller.addpost',
 		])
 		.config(['$locationProvider','$stateProvider','$urlRouterProvider', Config]);
 

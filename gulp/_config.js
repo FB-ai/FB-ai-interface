@@ -21,6 +21,7 @@ module.exports = {
 		'app/vendor/angular/angular.js',
 		'app/vendor/angular-ui-router/release/angular-ui-router.js',
 		'app/vendor/angular-animate/angular-animate.js',
+		'app/vendor/angular-material/angular-material.js',
 		'app/vendor/angular-aria/angular-aria.js'
 	]
 };

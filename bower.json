@@ -21,6 +21,7 @@
   "dependencies": {
     "lodash": "~3.7.0",
     "angular": "~1.4.7",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "angular-material": "~1.0.2"
   }
 }
