@@ -32,3 +32,6 @@ node_modules
 
 # Bower
 app/vendor
+
+# Destionation folder
+dist

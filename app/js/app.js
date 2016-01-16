@@ -1,28 +1,30 @@
 (function() {
-    // Don't apply strict its getting 
-    // applied by the babel es6 transpiler
+	angular
+		.module('app', [
+			'ui.router',
+			'app.controller.home',
+			'app.controller.addpost'
+		])
+		.config(['$locationProvider','$stateProvider','$urlRouterProvider', Config]);
 
-    angular
-        .module('app', [
-            'ui.router',
-            'app.controller.start'
-        ])
-        .config(['$locationProvider','$stateProvider','$urlRouterProvider', Config]);
+	function Config($locationProvider, $stateProvider, $urlRouterProvider) {
+		$locationProvider.html5Mode(true);
 
-    function Config($locationProvider, $stateProvider, $urlRouterProvider) {
-         
-        $locationProvider.html5Mode(true);
+		$stateProvider
+				.state('home', {
+					url: '/',
+					templateUrl: 'partials/home.html',
+					controller: 'HomeController',
+					controllerAs: 'home'
+				})
+				.state('addpost', {
+					url: '/addpost',
+					templateUrl: 'partials/addpost.html',
+					controller: 'AddpostController',
+					controllerAs: 'addpost'
+				});
 
-        $stateProvider
-            .state('start', {
-                url: '/', 
-                templateUrl: 'partials/start.html', 
-                controller: 'StartController',
-                controllerAs: 'start'
-            }); 
-
-        $urlRouterProvider 
-            .otherwise('/');
-    }
-
-})(); 
+		$urlRouterProvider
+				.otherwise('/');
+	}
+})();
