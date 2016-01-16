@@ -11,7 +11,7 @@
 		.config(['$locationProvider','$stateProvider','$urlRouterProvider', Config]);
 
 	function Config($locationProvider, $stateProvider, $urlRouterProvider) {
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(false);
 
 		$stateProvider
 				.state('home', {
