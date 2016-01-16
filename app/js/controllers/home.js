@@ -9,7 +9,8 @@
 
 		// home is the object available to the view
 		angular.extend(home, {
-			title: 'This is our starts controller'
+			title: 'This is our starts controller',
+			description: 'hejsa'
 		});
 	}
 })();
