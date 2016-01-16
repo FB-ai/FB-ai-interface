@@ -1,0 +1,26 @@
+{
+  "name": "login-app",
+  "version": "0.0.1",
+  "authors": [
+    "Simon Dragsbæk Petersen <dev@nomis.dk>"
+  ],
+  "description": "login angular app",
+  "main": "dist/js/app.js",
+  "keywords": [
+    "app"
+  ],
+  "license": "ISC",
+  "homepage": "login.nomis.dk",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.7.0",
+    "angular": "~1.4.7",
+    "angular-ui-router": "~0.2.15"
+  }
+}

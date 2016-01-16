@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+CACHE:
+index.html
+
+NETWORK:
+*
+
+SETTINGS:
+prefer-online
+
+# hash: 7736fc9b01547d29f9e861589a4ae8e43fcfcc6fe660ab1425145d4157452020
