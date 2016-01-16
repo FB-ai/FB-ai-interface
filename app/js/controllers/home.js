@@ -9,8 +9,7 @@
 
 		// home is the object available to the view
 		angular.extend(home, {
-			title: 'This is our starts controller',
-			description: 'hejsa'
+			title: 'FB-ai'
 		});
 	}
 })();
