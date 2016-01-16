@@ -1,3 +1,4 @@
+// Node core modules
 var path = require('path');
 
 // Import modules
