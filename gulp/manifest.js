@@ -3,7 +3,7 @@ var config = require('./_config');
 var manifest = require('gulp-appcache');
 
 // Takana module
-module.exports = function(gulp){
+module.exports = function(gulp, livereload){
 	gulp.task('manifest', function(){
 		return gulp.src(config.manifest.watch, { base: './dist/' })
 			.pipe(manifest({
