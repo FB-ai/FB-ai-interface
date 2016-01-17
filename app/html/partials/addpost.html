@@ -67,9 +67,13 @@
 			 </md-card-title-text>
 		 </md-card-title>
 		 <md-card-content>
-				<h3>Title</h3>
-			 <h4>{{addpost.title}}</h4>
-			 <p>{{addpost.contents}}</p>
+			<h5>{{addpost.title}}</h5>
+			<p>{{addpost.contents}}</p>
+			<span
+			 	ng-repeat="hashtag in addpost.hashtags"
+			 	style="color: #3a5389">
+				{{hashtag}}
+			</span>
 		 </md-card-content>
 		 <img
 		 	ng-src="../assets/img/french-city.jpg"
