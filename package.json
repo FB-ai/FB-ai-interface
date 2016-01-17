@@ -4,9 +4,14 @@
   "description": "This is a prototype-boilerplate which is a good way to start small html prototypes for show. With build-in seamless workflow",
   "main": "gulpfile.js",
   "author": "Simon Dragsbæk Petersen - github.com/sp90 - dev@nomis.dk",
+  "scripts": {
+  	"start": "node index.js",
+  	"postinstall": "bower install"
+  },
   "license": "ISC",
   "dependencies": {
-    "critical": "^0.6.0",
+    "compression": "^1.6.0",
+    "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.2.0",
     "gulp-babel": "^6.1.0",
@@ -14,10 +19,11 @@
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-jscs": "^3.0.2",
+    "gulp-livereload": "^3.8.1",
     "gulp-manifest": "^0.1.1",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-sass": "^2.0.1",
-    "gulp-server-livereload": "^1.4.0",
+    "morgan": "^1.6.1",
     "run-sequence": "^1.1.0",
     "yargs": "^3.10.0"
   }

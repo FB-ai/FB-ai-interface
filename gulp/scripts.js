@@ -2,16 +2,16 @@
 var path = require('path');
 
 // Import modules
+var ngAnnotate = require('gulp-ng-annotate');
 var concat = require('gulp-concat');
 var babel = require('gulp-babel');
-var ngAnnotate = require('gulp-ng-annotate');
 var jscs = require('gulp-jscs');
 
 // Import config
 var config = require('./_config');
 
 // Html module
-module.exports = function(gulp) {
+module.exports = function(gulp, livereload) {
 	gulp.task('scripts', function(){
 		return gulp.src(config.scripts)
 			.pipe(jscs({
@@ -21,7 +21,8 @@ module.exports = function(gulp) {
 			.pipe(jscs.reporter())
 			.pipe(babel())
 			.pipe(ngAnnotate())
-				.pipe(concat('app.js'))
-				.pipe(gulp.dest('dist/js'));
-			});
+			.pipe(concat('app.js'))
+			.pipe(gulp.dest('dist/js'))
+			.pipe(livereload());
+	});
 };
