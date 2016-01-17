@@ -5,13 +5,14 @@
   "main": "gulpfile.js",
   "author": "Simon Dragsbæk Petersen - github.com/sp90 - dev@nomis.dk",
   "scripts": {
-  	"start": "node index.js",
-  	"postinstall": "bower install"
+    "start": "node index.js",
+    "postinstall": "bower install"
   },
   "license": "ISC",
   "dependencies": {
     "compression": "^1.6.0",
     "express": "^4.13.3",
+    "morgan": "^1.6.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.2.0",
     "gulp-babel": "^6.1.0",
@@ -23,7 +24,6 @@
     "gulp-manifest": "^0.1.1",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-sass": "^2.0.1",
-    "morgan": "^1.6.1",
     "run-sequence": "^1.1.0",
     "yargs": "^3.10.0"
   }
