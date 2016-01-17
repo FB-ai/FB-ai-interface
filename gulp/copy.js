@@ -1,7 +1,6 @@
 // Import config
 var config = require('./_config');
 var clean = require('gulp-clean');
-var critical = require('critical').stream;
 
 // Html module
 module.exports = function(gulp, livereload){
@@ -12,7 +11,6 @@ module.exports = function(gulp, livereload){
 	});
 	gulp.task('html--deploy', function(){
 		return gulp.src(config.html)
-			.pipe(critical({base: 'dist/', inline: true, css: ['dist/css/app.css']}))
 			.pipe(gulp.dest('dist'))
 			.pipe(livereload());
 	});
