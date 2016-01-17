@@ -1,28 +1,126 @@
-<form ng-submit="$event.preventDefault()" name="searchForm">
-	<p>The following example demonstrates floating labels being used as a normal form element.</p>
-	<div layout-gt-sm="row">
-		<md-input-container flex>
-			<label>Post title</label>
-			<input type="text"/>
-		</md-input-container>
-		<md-autocomplete flex required
-				md-input-name="autocompleteField"
-				md-input-minlength="2"
-				md-input-maxlength="18"
-				md-no-cache="ctrl.noCache"
-				md-selected-item="ctrl.selectedItem"
-				md-search-text="ctrl.searchText"
-				md-items="item in ctrl.querySearch(ctrl.searchText)"
-				md-item-text="item.display"
-				md-floating-label="Favorite state">
-			<md-item-template>
-				<span md-highlight-text="ctrl.searchText">{{item.display}}</span>
-			</md-item-template>
-			<div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
-				<div ng-message="required">You <b>must</b> have a favorite state.</div>
-				<div ng-message="minlength">Your entry is not long enough.</div>
-				<div ng-message="maxlength">Your entry is too long.</div>
-			</div>
-		</md-autocomplete>
+<div
+	class="md-padding"
+	layout="row"
+	layout-wrap layout-xs="row">
+	<div
+		flex="50"
+		flex-xs="100"
+		layout="column">
+		<md-card>
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-headline">Create post</span>
+						<span class="md-subhead">Create your title (only viewable to you) and add some contents</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-content>
+				<form
+					name="projectForm"
+					class="ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-minlength ng-valid-maxlength ng-invalid-min ng-valid-max ng-invalid-pattern">
+					<md-input-container class="md-block md-input-has-value">
+	        	<label for="input_199">Title</label>
+	        	<input
+							md-maxlength="50"
+							required=""
+							name="description"
+							ng-model="addpost.postObj.title"
+							class="ng-pristine ng-untouched ng-valid md-input ng-valid-required"
+							id="input_199"
+							aria-required="false"
+							aria-invalid="false"
+							style=""
+							ng-trim="false">
+						<div class="md-errors-spacer"></div>
+	        	<div
+							ng-messages="projectForm.description.$error"
+							class="md-input-messages-animation md-auto-hide ng-inactive"
+							aria-live="assertive">
+	        	</div>
+	      	</md-input-container>
+					<md-input-container
+						class="md-block md-input-has-value"
+						style="height: auto;">
+	          <label for="input_493">Contents</label>
+	          <textarea
+							ng-model="addpost.postObj.contents"
+							columns="1"
+							md-maxlength="5000"
+							rows="5"
+							class="ng-valid md-input ng-dirty ng-valid-parse ng-valid-md-maxlength ng-touched"
+							id="input_493"
+							aria-invalid="false" ng-trim="false">
+						</textarea>
+						<div class="md-errors-spacer"></div>
+	        </md-input-container>
+	    	</form>
+			</md-card-content>
+			<md-card-actions layout="column" layout-align="start">
+				<md-button class="md-raised md-primary" ng-click="sendPost()"><span class="md-inline-list-icon-label ng-binding ng-scope">&nbsp;&nbsp;Share</span></md-button>
+			</md-card-actions>
+		</md-card>
 	</div>
-</form>
+	<div flex="50" flex-xs="100" layout="column" layout-xs="row">
+	 <md-card>
+		 <md-card-title>
+			 <md-card-title-text>
+				 <span class="md-headline">Post previews</span>
+			 </md-card-title-text>
+		 </md-card-title>
+		 <md-card-content>
+			<h5>{{addpost.postObj.title}}</h5>
+			<p>{{addpost.postObj.contents}}</p>
+			<span
+			 	ng-repeat="hashtag in addpost.postObj.hashtags"
+			 	style="color: #3a5389">
+				{{hashtag}}
+			</span>
+		 </md-card-content>
+		 <img
+		 	ng-src="../assets/img/french-city.jpg"
+		 	class="md-card-image md-padding"
+		 	alt="Washed Out"
+		 	src="../assets/img/french-city.jpg">
+	 </md-card>
+	</div>
+</div>
+<div
+	layout="row"
+	layout-wrap layout-xs="row">
+	<div flex="100" layout="column">
+		<md-card>
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-headline">Track your posts</span>
+				</md-card-title-text>
+			</md-card-title>
+			<div class="md-no-sticky md-subheader">
+				<div class="md-subheader-inner">
+					<span class="md-subheader-content">
+						<span class="ng-scope">Posts in queue</span>
+					</span>
+				</div>
+			</div>
+			<md-divider></md-divider>
+			<div ng-repeat="item in addpost.posts">
+				<md-list>
+					<md-list-item class="md-3-line" tabindex="-1" role="listitem" style="padding-right: 100px;">
+						<div class="md-list-item-text" layout="column">
+							<h3>{{item.title}}</h3>
+							<h4>Date created: {{item.date | date:'dd.MM.yyyy HH:mm:ss'}}</h4>
+							<p> {{item.content}} ...</p>
+						</div>
+						<md-button class="md-secondary">Edit</md-button>
+					</md-list-item>
+				</md-list>
+				<md-divider></md-divider>
+			</div>
+			<div class="md-no-sticky md-subheader">
+				<div class="md-subheader-inner">
+					<span class="md-subheader-content">
+						<span>Send posts</span>
+					</span>
+				</div>
+			</div>
+		</md-card>
+	</div>
+</div>

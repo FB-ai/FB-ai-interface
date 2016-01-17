@@ -6,11 +6,14 @@
 		'app.controller.home',
 		'app.controller.addpost',
 		'app.controller.toolbar',
+
+		'service.posts',
+		'service.auth',
 	];
 
 	angular
 		.module('app', modules)
-		.config(['$locationProvider','$stateProvider','$urlRouterProvider','$mdThemingProvider', Config]);
+		.config(Config);
 
 	function Config($locationProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider) {
 		$locationProvider.html5Mode(true);
@@ -41,9 +44,35 @@
 		/*
 		 * Angular material theme setup
 		 */
+		$mdThemingProvider.definePalette('fb-ai-palette', {
+			'50': '#8fa4cf',
+			'100': '#7e96c7',
+			'200': '#6c87c0',
+			'300': '#5a79b8',
+			'400': '#4b6bae',
+			'500': '#43609c',
+			'600': '#3b558a',
+			'700': '#344a78',
+			'800': '#2c3f66',
+			'900': '#243455',
+			'A100': '#a1b3d7',
+			'A200': '#b3c1de',
+			'A400': '#c5d0e6',
+			'A700': '#1d2943',
+			'contrastDefaultColor': 'light',
+			'contrastDarkColors': [
+					'50',
+					'100',
+					'200',
+					'300',
+					'400',
+					'A100'
+			],
+			'contrastLightColors': undefined
+		});
+
 		$mdThemingProvider.theme('default')
-			.primaryPalette('blue-grey')
-			.accentPalette('orange');
+			.primaryPalette('fb-ai-palette')
 	}
 
 	/*
@@ -53,14 +82,13 @@
 	function checkLoggedin($q, $http, $state) {
 		var deferred = $q.defer();
 
-		$http.get('/user')
+		$http.get('http://dumbass.ngrok.com/user')
 			.success(function(user) {
-				if (user !== '0') {
-					deferred.resolve(user);
-				} else {
-					deferred.reject();
-					$state.go('home');
-				}
+				deferred.resolve(user);
+			})
+			.error(function(data, status) {
+				deferred.reject();
+				$state.go('home');
 			});
 
 		return deferred.promise;

@@ -11,11 +11,12 @@
 		<script type="text/javascript" src="/js/app-libs.js"></script>
 	</head>
 	<body layout="column">
-		<md-toolbar ng-controller="ToolbarController as toolbar">
+		<md-toolbar class="md-whiteframe-z1" ng-controller="ToolbarController as toolbar">
 			<div class="md-toolbar-tools">
 				<md-button
 					class="md-icon-button"
-					aria-label="Settings">
+					aria-label="Settings"
+					ui-sref="addpost">
 					<i class="material-icons">account_circle</i>
 				</md-button>
 				<h2>
@@ -27,8 +28,8 @@
 		<md-content
 			layout="row"
 			md-scroll-y
-			flex
-			ui-view>
+			flex>
+			<div ui-view layout="column" layout-fill layout-padding>
 		</md-content>
 		<script type="text/javascript" src="/js/app.js"></script>
 	</body>

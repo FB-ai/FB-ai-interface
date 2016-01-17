@@ -1,7 +1,7 @@
 <md-content layout="row" flex layout-align="center center">
-	<div flex="30" layout-padding>
+	<div flex-gt-sm="30" flex-sm="100" layout-padding>
 		<md-card>
-			<form ng-submit="login();">
+			<form>
 				<div class="login__title">
 					Lets get started
 				</div>
@@ -15,8 +15,8 @@
 						<input ng-model="home.login.password" type="password">
 					</md-input-container>
 				</md-card-actions>
-				<md-card-actions layout="row" layout-align="end">
-					<md-button class="md-raised md-primary md-block" flex="100">Login</md-button>
+				<md-card-actions layout="row" layout-align="center">
+					<md-button class="md-raised md-primary md-block" ng-click="home.login()">Login</md-button>
 				</md-card-actions>
 			</form>
 		</md-card>
