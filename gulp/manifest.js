@@ -3,7 +3,7 @@ var config = require('./_config');
 var manifest = require('gulp-manifest');
 
 // Takana module
-module.exports = function(gulp){
+module.exports = function(gulp, livereload){
 	gulp.task('manifest', function(){
 		return gulp.src([config.output])
 			.pipe(manifest({
@@ -12,6 +12,7 @@ module.exports = function(gulp){
 				filename: 'app.manifest',
 				exclude: 'app.manifest'
 			}))
-			.pipe(gulp.dest(config.output));
+			.pipe(gulp.dest(config.output))
+			.pipe(livereload());
 	});
 };
