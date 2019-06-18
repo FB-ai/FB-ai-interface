@@ -3,13 +3,27 @@
 		.module('app.controller.home', [])
 		.controller('HomeController', HomeController);
 
-	// Dont use the injects this gets sorted out by ng-annotate
-	function HomeController($scope) {
+	function HomeController($scope, $window, Auth) {
 		var home = this;
 
-		// home is the object available to the view
 		angular.extend(home, {
-			title: 'FB-ai'
+			title: 'FB-ai',
+			login,
 		});
+
+		function login() {
+			console.log('login clicked');
+			Auth.sessionStart()
+				.then(function(data) {
+					// Success
+					var regex = /.​*href="(.*)"/g;
+					var matches = regex.exec(data);
+					var url = matches[1];
+
+					$window.location.href = url;
+				}, function(err, status) {
+					// Error
+				})
+		}
 	}
 })();

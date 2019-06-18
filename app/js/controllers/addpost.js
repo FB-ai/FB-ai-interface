@@ -6,48 +6,56 @@
 	/**
 	 *	Dont use the injects this gets sorted out by ng-annotate
 	 */
-	function AddpostController($scope) {
+	function AddpostController($scope, isLoggedin, Posts) {
 		var addpost = this;
-		date = new Date();
+
 		/**
 		 *	addpost is the object available to the view
 		 */
 		angular.extend(addpost, {
-			title: '',
-			contents: 'adadad #heje #hdhad',
-			hashtags: '',
+			postObj: {
+				title: '',
+				contents: 'adadad #heje #hdhad',
+				hashtags: ''
+			},
 			sendPost,
-			test_data: [{title: 'This is my first post', content: 'Here you will se a resume of the content', date: date},
-			{title: 'Second post about NYC marathon', content: 'The runners perfomed quite well at the marathon. Some did the distance in less than 5 minutes... Truly amazing.', date: date},
-		]
+			posts: [],
 		});
+
+		// Get posts
+		Posts.get().then(function(posts) {
+			addpost.posts = posts;
+		});
+
+		function sendPost() {
+			if (addpost.postObj.title) {
+				date = new Date();
+
+				addpost.posts.push(addpost.postObj);
+
+				// Some $http here
+				// if success do following:
+				resetPostView();
+			} else {
+				// items is still null
+			}
+		}
+
+		function resetPostView() {
+			angular.extend(addpost.postObj, {
+				title: '',
+				contents: '',
+				hashtags: ''
+			});
+		}
 
 		/**
 		 *	Here we match hashtags by regex and store them
 		 */
-		addpost.hashtags = getHashtags();
+		// addpost.hashtags = getHashtags();
 
-		function getHashtags() {
-			return addpost.contents.match(/#\S+/g);
-		}
-
-		function sendPost() {
-			if (addpost.title) {
-				date = new Date();
-				addpost.test_data.push({
-					title: addpost.title,
-					content: addpost.contents,
-					date:	date
-				});
-
-				// Some $http here
-				// if success do following:
-				addpost.title = '';
-				addpost.contents = '';
-				addpost.hashtags = '';
-			} else {
-				// items is still null
-			}
-		};
+		// function getHashtags() {
+		// 	return addpost.contents.match(/#\S+/g);
+		// }
 	}
 })();

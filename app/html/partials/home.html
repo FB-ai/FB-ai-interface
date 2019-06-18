@@ -1,0 +1,24 @@
+<md-content layout="row" flex layout-align="center center">
+	<div flex-gt-sm="30" flex-sm="100" layout-padding>
+		<md-card>
+			<form>
+				<div class="login__title">
+					Lets get started
+				</div>
+				<md-card-actions layout="row">
+					<md-input-container flex class="md-block login__input-container">
+						<label>Username</label>
+						<input ng-model="home.login.username" type="text">
+					</md-input-container>
+					<md-input-container flex class="md-block login__input-container">
+						<label>Password</label>
+						<input ng-model="home.login.password" type="password">
+					</md-input-container>
+				</md-card-actions>
+				<md-card-actions layout="row" layout-align="center">
+					<md-button class="md-raised md-primary md-block" ng-click="home.login()">Login</md-button>
+				</md-card-actions>
+			</form>
+		</md-card>
+	</div>
+</md-content>

@@ -1,5 +1,13 @@
 module.exports = {
-	output: 'dist/*',
+	manifest: {
+		watch: [
+			'dist/**/*'
+		],
+		exclude: [
+			'app.manifest'
+		],
+		dist: 'dist'
+	},
 	sass: [
 		'app/sass/**/*'
 	],

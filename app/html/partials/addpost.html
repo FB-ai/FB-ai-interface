@@ -23,7 +23,7 @@
 							md-maxlength="50"
 							required=""
 							name="description"
-							ng-model="addpost.title"
+							ng-model="addpost.postObj.title"
 							class="ng-pristine ng-untouched ng-valid md-input ng-valid-required"
 							id="input_199"
 							aria-required="false"
@@ -42,7 +42,7 @@
 						style="height: auto;">
 	          <label for="input_493">Contents</label>
 	          <textarea
-							ng-model="addpost.contents"
+							ng-model="addpost.postObj.contents"
 							columns="1"
 							md-maxlength="5000"
 							rows="5"
@@ -67,10 +67,10 @@
 			 </md-card-title-text>
 		 </md-card-title>
 		 <md-card-content>
-			<h5>{{addpost.title}}</h5>
-			<p>{{addpost.contents}}</p>
+			<h5>{{addpost.postObj.title}}</h5>
+			<p>{{addpost.postObj.contents}}</p>
 			<span
-			 	ng-repeat="hashtag in addpost.hashtags"
+			 	ng-repeat="hashtag in addpost.postObj.hashtags"
 			 	style="color: #3a5389">
 				{{hashtag}}
 			</span>
@@ -101,7 +101,7 @@
 				</div>
 			</div>
 			<md-divider></md-divider>
-			<div ng-repeat="item in addpost.test_data">
+			<div ng-repeat="item in addpost.posts">
 				<md-list>
 					<md-list-item class="md-3-line" tabindex="-1" role="listitem" style="padding-right: 100px;">
 						<div class="md-list-item-text" layout="column">

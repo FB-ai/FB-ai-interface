@@ -1,18 +1,18 @@
 // Import modules
 var config = require('./_config');
-var manifest = require('gulp-manifest');
+var manifest = require('gulp-appcache');
 
 // Takana module
 module.exports = function(gulp, livereload){
 	gulp.task('manifest', function(){
-		return gulp.src([config.output])
+		return gulp.src(config.manifest.watch, { base: './dist/' })
 			.pipe(manifest({
 				hash: true,
 				preferOnline: true,
+				network: ['http://*', 'https://*', '*'],
 				filename: 'app.manifest',
-				exclude: 'app.manifest'
+				exclude: config.manifest.exclude
 			}))
-			.pipe(gulp.dest(config.output))
-			.pipe(livereload());
+			.pipe(gulp.dest(config.manifest.dist));
 	});
 };

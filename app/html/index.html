@@ -1,4 +1,4 @@
-<html ng-app="app">
+<html ng-app="app" manifest="app.manifest">
 	<head>
 		<base href="/">
 		<title>FB-ai</title>
@@ -23,16 +23,10 @@
 					<span>{{toolbar.title}}</span>
 				</h2>
 				<span flex></span>
-				<md-button
-					class="md-icon-button"
-					aria-label="Favorite">
-					<i class="material-icons">flip_to_back</i>
-				</md-button>
 			</div>
 		</md-toolbar>
 		<md-content
 			layout="row"
-			class="layout-row flex"
 			md-scroll-y
 			flex>
 			<div ui-view layout="column" layout-fill layout-padding>
